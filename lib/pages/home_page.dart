@@ -18,6 +18,7 @@ class _HomePageState extends State<HomePage> {
         body: Center(
           child: Text("Hi $name"),
         ),
+        drawer: const Drawer(),
       );
   }
 }
