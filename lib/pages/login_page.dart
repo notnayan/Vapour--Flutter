@@ -10,6 +10,9 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
+  String name = "";
+  bool changeButton = false;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -21,9 +24,9 @@ class _LoginPageState extends State<LoginPage> {
               "assets/images/login.png",
               fit: BoxFit.cover,
             ),
-            const Text(
-              "Welcome",
-              style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+            Text(
+              "Welcome $name",
+              style: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
             ),
             const SizedBox(
               height: 24,
@@ -36,6 +39,10 @@ class _LoginPageState extends State<LoginPage> {
                   TextFormField(
                     decoration: const InputDecoration(
                         hintText: "Enter username", labelText: "Username"),
+                    onChanged: (value) {
+                      name = value;
+                      setState(() {});
+                    },
                   ),
                   TextFormField(
                     obscureText: true,
@@ -45,17 +52,31 @@ class _LoginPageState extends State<LoginPage> {
                   const SizedBox(
                     height: 30,
                   ),
-                  ElevatedButton(
-                    onPressed: () {
+                  InkWell(
+                    onTap: () async {
+                      setState(() {
+                        changeButton = true;
+                      });
+                      await Future.delayed(const Duration(seconds: 1));
                       Navigator.pushNamed(context, Routes.homeRoute);
                     },
-                    style: TextButton.styleFrom(
-                      minimumSize: const Size(120, 45),
-                    ),
-                    child: const Text(
-                      "LOGIN",
-                      style:
-                          TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                    child: AnimatedContainer(
+                      duration: const Duration(seconds: 1),
+                      height: 50,
+                      width: changeButton ? 50 : 150,
+                      alignment: Alignment.center,
+                      decoration: BoxDecoration(
+                        color: Colors.cyan,
+                        borderRadius:
+                            BorderRadius.circular(changeButton ? 50 : 8),
+                      ),
+                      child: changeButton
+                          ? const Icon(Icons.done)
+                          : const Text(
+                              "LOGIN",
+                              style: TextStyle(
+                                  fontSize: 18, fontWeight: FontWeight.bold),
+                            ),
                     ),
                   )
                 ],
