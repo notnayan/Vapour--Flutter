@@ -1,7 +1,7 @@
-# catalog_app
+# Vapour_app
 
-A new Flutter project.
+A Flutter project which is a subtle clone to Steam (hence the name Vapour, get it?), it just provides games catalog.
+This project basically contains all the flutter fundamentals in one app.
 
-This project is a starting point for a Flutter application. It covers all flutter fundamentals in one app.
 
 
