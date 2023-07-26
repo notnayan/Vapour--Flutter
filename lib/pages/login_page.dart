@@ -12,6 +12,7 @@ class LoginPage extends StatefulWidget {
 class _LoginPageState extends State<LoginPage> {
   String name = "";
   bool changeButton = false;
+  bool _isPasswordVisible = false;
 
   final _formKey = GlobalKey<FormState>();
 
@@ -38,16 +39,51 @@ class _LoginPageState extends State<LoginPage> {
           child: Column(
             children: [
               Image.asset(
-                "assets/images/login.png",
+                "assets/images/login.jpg",
                 fit: BoxFit.cover,
               ),
-              Text(
-                "Welcome $name",
-                style:
-                    const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+              const SizedBox(
+                height: 30,
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 50),
+                child: Align(
+                  alignment: Alignment.topLeft,
+                  child: Row(
+                    children: [
+                      Image.asset("assets/images/line.png"),
+                      const SizedBox(
+                        width: 10,
+                      ),
+                      const Text(
+                        "VAPOUR",
+                        style: TextStyle(
+                            fontSize: 24, fontWeight: FontWeight.normal),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+              const Padding(
+                padding: EdgeInsets.symmetric(horizontal: 50),
+                child: Align(
+                  alignment: Alignment.centerLeft,
+                  child: Text(
+                    "Login",
+                    style: TextStyle(fontSize: 50, fontWeight: FontWeight.bold),
+                  ),
+                ),
+              ),
+              const Padding(
+                padding: EdgeInsets.fromLTRB(100, 2, 150, 2),
+                child: Divider(
+                  color: Colors.cyan,
+                  height: 35,
+                  thickness: 6,
+                ),
               ),
               const SizedBox(
-                height: 24,
+                height: 5,
               ),
               Padding(
                 padding: const EdgeInsets.symmetric(
@@ -56,7 +92,9 @@ class _LoginPageState extends State<LoginPage> {
                   children: [
                     TextFormField(
                       decoration: const InputDecoration(
-                          hintText: "Enter username", labelText: "Username"),
+                          prefixIcon: Icon(Icons.person),
+                          hintText: "Enter username",
+                          labelText: "Username"),
                       validator: (value) {
                         if (value!.isEmpty) {
                           return "Username cannot be empty!";
@@ -69,9 +107,24 @@ class _LoginPageState extends State<LoginPage> {
                       },
                     ),
                     TextFormField(
-                      obscureText: true,
-                      decoration: const InputDecoration(
-                          hintText: "Enter password", labelText: "Password"),
+                      obscureText: !_isPasswordVisible,
+                      decoration: InputDecoration(
+                        prefixIcon: const Icon(Icons.lock),
+                        suffixIcon: GestureDetector(
+                          onTap: () {
+                            setState(() {
+                              _isPasswordVisible = !_isPasswordVisible;
+                            });
+                          },
+                          child: Icon(
+                            _isPasswordVisible
+                                ? Icons.visibility
+                                : Icons.visibility_off,
+                          ),
+                        ),
+                        hintText: "Enter password",
+                        labelText: "Password",
+                      ),
                       validator: (value) {
                         if (value!.isEmpty) {
                           return "Password cannot be empty!";

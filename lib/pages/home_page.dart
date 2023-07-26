@@ -1,3 +1,4 @@
+import 'package:catalog_app/widgets/drawer.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {
@@ -13,12 +14,10 @@ class _HomePageState extends State<HomePage> {
     String name = "Shailu";
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Catalog App"),
+        title: const Text("VAPOUR"),
       ),
-        body: Center(
-          child: Text("Hi $name"),
-        ),
-        drawer: const Drawer(),
-      );
+      body: Center(child: Text("HI $name")),
+      drawer: const MyDrawer(),
+    );
   }
 }
