@@ -1,0 +1,44 @@
+{
+    "games": [
+        {
+            "id": 1,
+            "name": "Red Dead Redemption 2",
+            "developer": "Rockstar Games",
+            "price": "44.99",
+            "rating": 5,
+            "image": "https://upload.wikimedia.org/wikipedia/en/4/44/Red_Dead_Redemption_II.jpg"
+        },
+        {
+            "id": 2,
+            "name": "Sekiro",
+            "developer": "FromSoftware Inc.",
+            "price": "31.99",
+            "rating": 5,
+            "image": "https://upload.wikimedia.org/wikipedia/en/6/6e/Sekiro_art.jpg"
+        },
+        {
+            "id": 3,
+            "name": "Elden Ring",
+            "developer": "FromSoftware Inc.",
+            "price": "49.99",
+            "rating": 5,
+            "image": "https://upload.wikimedia.org/wikipedia/en/b/b9/Elden_Ring_Box_art.jpg"
+        },
+        {
+            "id": 4,
+            "name": "Dead By Daylight",
+            "developer": "Behaviour Interactive",
+            "price": "9.99",
+            "rating": 4,
+            "image": "https://upload.wikimedia.org/wikipedia/en/b/b7/Dead_by_Daylight_Steam_header.jpg"
+        },
+        {
+            "id": 5,
+            "name": "Tom Clancy's Rainbow Six Siege",
+            "developer": "Ubisoft",
+            "price": "14.99",
+            "rating": 4,
+            "image": "https://upload.wikimedia.org/wikipedia/en/thumb/4/47/Tom_Clancy%27s_Rainbow_Six_Siege_cover_art.jpg/220px-Tom_Clancy%27s_Rainbow_Six_Siege_cover_art.jpg"
+        }
+    ]
+}

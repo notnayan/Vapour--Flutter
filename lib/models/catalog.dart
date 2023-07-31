@@ -1,14 +1,5 @@
 class CatalogModel {
-  static final items = [
-    Item(
-        id: 1,
-        name: "Red Dead Redemption 2",
-        developer:
-            "Rockstar Games",
-        price: '\$49.99',
-        rating: 5,
-        image: "https://upload.wikimedia.org/wikipedia/en/4/44/Red_Dead_Redemption_II.jpg")
-  ];
+  static List<Item> items = [];
 }
 
 class Item {
@@ -26,4 +17,23 @@ class Item {
       required this.price,
       required this.rating,
       required this.image});
+
+  factory Item.fromMap(Map<String, dynamic> map) {
+    return Item(
+        id: map["id"],
+        name: map["name"],
+        developer: map["developer"],
+        price: map["price"],
+        rating: map["rating"],
+        image: map["image"]);
+  }
+
+  toMap() => {
+        "id": id,
+        "name": name,
+        "developer": developer,
+        "price": price,
+        "rating": rating,
+        "image": image
+      };
 }
