@@ -17,7 +17,7 @@ class ItemWidget extends StatelessWidget {
         leading: Image.network(item.image),
         title: Text(item.name),
         subtitle: Text(item.developer),
-        trailing: Text(item.price, style: const TextStyle(fontWeight: FontWeight.bold, color: Colors.cyan),),
+        trailing: Text(item.price, style: const TextStyle(fontWeight: FontWeight.bold, color: Colors.deepPurple),),
       ),
     );
   }

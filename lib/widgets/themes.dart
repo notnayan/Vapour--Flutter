@@ -3,7 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 
 class MyTheme{
   static ThemeData lightTheme() => ThemeData(
-        primarySwatch: Colors.cyan,
+        primarySwatch: Colors.deepPurple,
         fontFamily: GoogleFonts.poppins().fontFamily
       );
   
