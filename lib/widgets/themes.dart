@@ -10,4 +10,16 @@ class MyTheme{
   static ThemeData darkTheme() => ThemeData(
        brightness: Brightness.dark
       );
+
+    final myH1 = TextStyle(
+      fontFamily: GoogleFonts.poppins().fontFamily,
+      fontSize: 32,
+      fontWeight: FontWeight.bold,
+      color: Colors.black);
+
+      final myH2 = TextStyle(
+      fontFamily: GoogleFonts.poppins().fontFamily,
+      fontSize: 16,
+      fontWeight: FontWeight.w600,
+      color: Colors.black);
 }

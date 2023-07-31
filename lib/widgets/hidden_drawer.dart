@@ -1,5 +1,4 @@
 import 'package:catalog_app/pages/home_page.dart';
-import 'package:catalog_app/pages/login_page.dart';
 import 'package:catalog_app/pages/profile_page.dart';
 import 'package:catalog_app/utils/routes.dart';
 import 'package:flutter/material.dart';

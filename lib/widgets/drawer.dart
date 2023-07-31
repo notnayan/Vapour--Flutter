@@ -36,8 +36,8 @@ class MyDrawer extends StatelessWidget {
                 ),
                 currentAccountPicture: Container(
                   decoration: BoxDecoration(
-                    shape: BoxShape.circle,
-                  ),
+                      shape: BoxShape.circle,
+                      border: Border.all(color: Colors.deepPurple, width: 3)),
                   child: const CircleAvatar(
                     backgroundImage: AssetImage("assets/images/headshot.png"),
                   ),
@@ -48,7 +48,10 @@ class MyDrawer extends StatelessWidget {
               height: 120,
             ),
             // LISTTILES
-            const ListTile(
+            ListTile(
+              onTap: () {
+                Navigator.pushNamed(context, Routes.profileRoute);
+              },
               leading: Icon(
                 CupertinoIcons.person_fill,
                 color: Colors.white,
@@ -99,9 +102,43 @@ class MyDrawer extends StatelessWidget {
             const SizedBox(
               height: 150,
             ),
-             ListTile(
+            ListTile(
               onTap: () {
-                Navigator.pushNamed(context, Routes.loginRoute);
+                showDialog(
+                    context: context,
+                    builder: (context) {
+                      return CupertinoAlertDialog(
+                        title: Text(
+                          "LOG OUT",
+                          style: TextStyle(fontSize: 20),
+                        ),
+                        content: Text(
+                          "Are you sure you want to Logout?",
+                          style: TextStyle(fontSize: 16),
+                        ),
+                        actions: [
+                          MaterialButton(
+                            onPressed: () {
+                              Navigator.pushNamed(context, Routes.loginRoute);
+                            },
+                            child: Text(
+                              "YES",
+                              style: TextStyle(fontWeight: FontWeight.bold),
+                            ),
+                          ),
+                          MaterialButton(
+                            onPressed: () {
+                              Navigator.pop(context);
+                            },
+                            child: Text(
+                              "NO",
+                              style: TextStyle(fontWeight: FontWeight.bold,),
+                            ),
+                          ),
+                        ],
+                      );
+                    });
+                //Navigator.pushNamed(context, Routes.loginRoute);
               },
               leading: Icon(
                 Icons.logout,
