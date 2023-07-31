@@ -2,7 +2,6 @@ import 'dart:convert';
 import 'package:catalog_app/models/catalog.dart';
 import 'package:catalog_app/widgets/bottom_navbar.dart';
 import 'package:catalog_app/widgets/drawer.dart';
-import 'package:catalog_app/widgets/hidden_drawer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -36,6 +35,7 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.deepPurple.shade300,
       appBar: AppBar(
         title: const Text("VAPOUR"),
       ),
@@ -52,8 +52,8 @@ class _HomePageState extends State<HomePage> {
                 child: CircularProgressIndicator(),
               ),
       ),
-      drawer: const HiddenDrawer(),
-      bottomNavigationBar: MyBottomNavbar(),
+      drawer: const MyDrawer(),
+      bottomNavigationBar: const MyBottomNavbar(),
     );
   }
 }
