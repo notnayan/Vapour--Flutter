@@ -1,0 +1,38 @@
+{
+    "user": [
+        {
+            "id": 1,
+            "gamername": "sirSHINIGAMI",
+            "tagname": "#8563",
+            "name": "Nayan Raj Khanal",
+            "country": "Nepal",
+            "image": "assets/images/logo.png",
+            "level": 4,
+            "title": "Adept Accumulator",
+            "xp": 176,
+            "bio": "@NEPALI IDIOT",
+            "badges": 7,
+            "friends": 9,
+            "reviews": 9,
+            "games": 16,
+            "hours": 524
+        },
+        {
+            "id": 2,
+            "gamername": "Annoyance",
+            "tagname": "#6666",
+            "name": "Shailu Parajuli",
+            "country": "Nepal",
+            "image": "assets/images/nepal.png",
+            "level": 1,
+            "title": "Noob",
+            "xp": 0,
+            "bio": "@NEPALI IDIOT",
+            "badges": 0,
+            "friends": 1,
+            "reviews": 0,
+            "games": 0,
+            "hours": 1
+        }
+    ]
+}
