@@ -63,18 +63,6 @@ class MyDrawer extends StatelessWidget {
                 textScaleFactor: 1.2,
               ),
             ),
-            const ListTile(
-              leading: Icon(
-                CupertinoIcons.bell,
-                color: Colors.white,
-              ),
-              title: Text(
-                "N O T I F I C A T I O N S",
-                style:
-                    TextStyle(fontWeight: FontWeight.bold, color: Colors.white),
-                textScaleFactor: 1.2,
-              ),
-            ),
             ListTile(
               leading: Icon(
                 CupertinoIcons.settings,
@@ -100,7 +88,7 @@ class MyDrawer extends StatelessWidget {
               ),
             ),
             const SizedBox(
-              height: 150,
+              height: 200,
             ),
             ListTile(
               onTap: () {

@@ -8,6 +8,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
+import '../utils/routes.dart';
+
 //import '../widgets/item_widget.dart';
 
 class HomePage extends StatefulWidget {
@@ -18,22 +20,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  @override
-  void initState() {
-    super.initState();
-    //  loadData();
-  }
-
-  // loadData() async {
-  //   await Future.delayed(Duration(seconds: 2));
-  //   final catalogJson =
-  //       await rootBundle.loadString("assets/files/catalog.JSON");
-  //   final decodedData = jsonDecode(catalogJson);
-  //   var gamesData = decodedData["games"];
-  //   CatalogModel.items =
-  //       List.from(gamesData).map<Item>((item) => Item.fromMap(item)).toList();
-  //   setState(() {});
-  // }
+  
 
   @override
   Widget build(BuildContext context) {
@@ -44,13 +31,13 @@ class _HomePageState extends State<HomePage> {
         actions: [
           IconButton(
             onPressed: () {
-              print("Page Refreshed");
+              print("No new notifications!");
             },
-            icon: Icon(CupertinoIcons.refresh),
+            icon: Icon(CupertinoIcons.bell_fill),
           ),
           InkWell(
             onTap: () {
-              print("VAPOUR");
+              Navigator.pushNamed(context, Routes.profileRoute);
             },
             child: Padding(
               padding: const EdgeInsets.all(8.0),
@@ -135,6 +122,7 @@ class _HomePageState extends State<HomePage> {
                 ),
               ),
             ),
+            
           ],
         ),
       ),

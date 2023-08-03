@@ -5,16 +5,16 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:hidden_drawer_menu/hidden_drawer_menu.dart';
 
-class HiddenDrawer extends StatefulWidget {
-  const HiddenDrawer({super.key});
+class MyHiddenDrawer extends StatefulWidget {
+  const MyHiddenDrawer({super.key});
 
   get myTextStyle => null;
 
   @override
-  State<HiddenDrawer> createState() => _HiddenDrawerState();
+  State<MyHiddenDrawer> createState() => _MyHiddenDrawerState();
 }
 
-class _HiddenDrawerState extends State<HiddenDrawer> {
+class _MyHiddenDrawerState extends State<MyHiddenDrawer> {
   List<ScreenHiddenDrawer> _pages = [];
   final myTextStyle = TextStyle(
       fontFamily: GoogleFonts.montserrat().fontFamily,
