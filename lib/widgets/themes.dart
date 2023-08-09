@@ -17,9 +17,35 @@ class MyTheme{
       fontWeight: FontWeight.bold,
       color: Colors.black);
 
+    final myH1w = TextStyle(
+      fontFamily: GoogleFonts.poppins().fontFamily,
+      fontSize: 32,
+      fontWeight: FontWeight.bold,
+      color: Colors.white);
+
       final myH2 = TextStyle(
       fontFamily: GoogleFonts.poppins().fontFamily,
       fontSize: 16,
       fontWeight: FontWeight.w600,
       color: Colors.black);
+
+      final mid = TextStyle(
+      fontFamily: GoogleFonts.poppins().fontFamily,
+      fontSize: 20,
+      fontWeight: FontWeight.bold,
+      color: Colors.white);
+
+      final s = TextStyle(
+      fontFamily: GoogleFonts.poppins().fontFamily,
+      fontSize: 16,
+      fontWeight: FontWeight.w200,
+      color: Colors.white);
+
+      final rating = TextStyle(
+      fontFamily: GoogleFonts.poppins().fontFamily,
+      fontSize: 16,
+      fontWeight: FontWeight.w900,
+      color: Colors.green);
+
+      
 }

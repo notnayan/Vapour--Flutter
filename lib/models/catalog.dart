@@ -7,7 +7,7 @@ class Item {
   final String name;
   final String developer;
   final String price;
-  final num rating;
+  final String rating;
   final String image;
 
   Item(

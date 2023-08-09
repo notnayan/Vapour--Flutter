@@ -1,9 +1,12 @@
+import 'package:catalog_app/widgets/search_box.dart';
 import 'package:flutter/material.dart';
 import '../models/catalog.dart';
 import '../widgets/bottom_navbar.dart';
-import '../widgets/item_widget.dart';
 import 'dart:convert';
 import 'package:flutter/services.dart';
+
+import '../widgets/wishlist_widgets/catalog_header.dart';
+import '../widgets/wishlist_widgets/catalog_list.dart';
 
 class WishlistPage extends StatefulWidget {
   const WishlistPage({super.key});
@@ -13,7 +16,6 @@ class WishlistPage extends StatefulWidget {
 }
 
 class _WishlistPageState extends State<WishlistPage> {
-
   @override
   void initState() {
     super.initState();
@@ -34,24 +36,34 @@ class _WishlistPageState extends State<WishlistPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.deepPurple.shade200,
       appBar: AppBar(
-        title: const Text("WISHLIST"),
+        centerTitle: true,
+        title: Text("W I S H L I S T"),
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: (CatalogModel.items.isNotEmpty)
-            ? ListView.builder(
-                itemBuilder: ((context, index) {
-                  return ItemWidget(item: CatalogModel.items[index]);
-                }),
-                itemCount: CatalogModel.items.length,
+      backgroundColor: Colors.deepPurple.shade300,
+      body: SafeArea(
+        child: Column(
+          children: [
+            MyCatalogHeader(),
+            MySearch(),
+            if (CatalogModel.items.isNotEmpty)
+              Expanded(child: MyCatalogList())
+            else
+              Expanded(
+                child: Center(
+                  child: CircularProgressIndicator(),
+                ),
               )
-            : Center(
-                child: CircularProgressIndicator(),
-              ),
+          ],
+        ),
       ),
       bottomNavigationBar: const MyBottomNavbar(),
     );
   }
 }
+
+
+
+
+
+
