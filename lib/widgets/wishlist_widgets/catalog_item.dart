@@ -21,7 +21,9 @@ class MyCatalogItem extends StatelessWidget {
               padding: const EdgeInsets.all(8.0),
               child: SizedBox(
                 width: 100,
-                child: Image.network(games.image),
+                child: Hero(
+                    tag: Key(games.id.toString()),
+                    child: Image.network(games.image)),
               ),
             ),
             Expanded(

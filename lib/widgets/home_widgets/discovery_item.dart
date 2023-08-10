@@ -18,16 +18,18 @@ class MyDiscoveryItem extends StatelessWidget {
             children: [
               AspectRatio(
                 aspectRatio: 0.75,
-                child: Image.network(
-                  discovery.image,
-                  fit: BoxFit.fill,
+                child: Hero(tag: Key(discovery.id.toString()),
+                  child: Image.network(
+                    discovery.image,
+                    fit: BoxFit.fill,
+                  ),
                 ),
               ),
             ],
           ),
           Positioned(
-            bottom: -3, // Adjust the position as needed
-            left: 35, // Adjust the position as needed
+            bottom: -3,
+            left: 35, 
             child: Padding(
               padding: const EdgeInsets.all(8.0),
               child: Container(

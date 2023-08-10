@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:catalog_app/models/catalog.dart';
+import 'package:catalog_app/pages/wishlists_page.dart';
 import 'package:catalog_app/widgets/bottom_navbar.dart';
 import 'package:catalog_app/widgets/carousel.dart';
 import 'package:catalog_app/widgets/drawer.dart';
@@ -45,6 +46,7 @@ class _HomePageState extends State<HomePage> {
         actions: [
           IconButton(
             onPressed: () {
+              Navigator.push(context, MaterialPageRoute(builder: (context) => WishlistPage(),));
               print("No new notifications!");
             },
             icon: Icon(CupertinoIcons.bell_fill),

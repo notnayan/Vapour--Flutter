@@ -1,3 +1,4 @@
+import 'package:catalog_app/pages/home_details_page.dart';
 import 'package:flutter/material.dart';
 import '../../models/catalog.dart';
 import 'discovery_item.dart';
@@ -18,7 +19,15 @@ class MyDiscoveryList extends StatelessWidget {
       itemCount: CatalogModel.items.length,
       itemBuilder: (context, index) {
         final discovery = CatalogModel.items[index];
-        return MyDiscoveryItem(discovery: discovery);
+        return InkWell(
+          onTap: () => Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => HomeDetailsPage(games: discovery),
+            ),
+          ),
+          child: MyDiscoveryItem(discovery: discovery),
+        );
       },
     );
   }
