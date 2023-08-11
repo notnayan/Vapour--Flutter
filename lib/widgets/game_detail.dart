@@ -1,8 +1,10 @@
+import 'package:catalog_app/models/cart.dart';
 import 'package:catalog_app/widgets/themes.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import '../models/catalog.dart';
+import 'add_to_cart.dart';
 
 class MyGameDetails extends StatelessWidget {
   final Item games;
@@ -82,7 +84,8 @@ class MyGameDetails extends StatelessWidget {
                     color: Colors.deepPurple.shade300,
                     borderRadius: BorderRadius.circular(22)),
                 child: Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 6,horizontal: 16),
+                  padding:
+                      const EdgeInsets.symmetric(vertical: 6, horizontal: 16),
                   child: ButtonBar(
                     alignment: MainAxisAlignment.spaceBetween,
                     children: [
@@ -95,18 +98,7 @@ class MyGameDetails extends StatelessWidget {
                       ),
                       Transform.scale(
                         scale: 1.25,
-                        child: ElevatedButton(
-                          onPressed: () {
-                            print("BOUGHT");
-                          },
-                          style: ButtonStyle(
-                            backgroundColor: MaterialStateProperty.all<Color>(
-                                Colors.green),
-                          ),
-                          child: Icon(
-                            CupertinoIcons.cart,
-                          ),
-                        ),
+                        child: AddToCart(games: games),
                       ),
                     ],
                   ),
@@ -119,3 +111,5 @@ class MyGameDetails extends StatelessWidget {
     );
   }
 }
+
+

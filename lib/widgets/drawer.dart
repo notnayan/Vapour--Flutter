@@ -64,6 +64,9 @@ class MyDrawer extends StatelessWidget {
               ),
             ),
             ListTile(
+              onTap: () {
+                Navigator.pushNamed(context, Routes.wishlistRoute);
+              },
               leading: Icon(
                 CupertinoIcons.settings,
                 color: Colors.white,

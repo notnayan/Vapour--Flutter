@@ -1,3 +1,4 @@
+import 'package:catalog_app/widgets/add_to_cart.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import '../../models/catalog.dart';
@@ -61,17 +62,7 @@ class MyCatalogItem extends StatelessWidget {
                             SizedBox(
                               width: 20,
                             ),
-                            ElevatedButton(
-                              onPressed: () {
-                                print("BOUGHT");
-                              },
-                              style: ButtonStyle(
-                                backgroundColor:
-                                    MaterialStateProperty.all<Color>(
-                                        Colors.green),
-                              ),
-                              child: Icon(CupertinoIcons.cart),
-                            ),
+                            AddToCart(games: games),
                             ElevatedButton(
                               onPressed: () {
                                 print("REMOVED");

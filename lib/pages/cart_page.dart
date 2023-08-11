@@ -1,4 +1,5 @@
 import 'package:awesome_snackbar_content/awesome_snackbar_content.dart';
+import 'package:catalog_app/models/cart.dart';
 import 'package:catalog_app/widgets/bottom_navbar.dart';
 import 'package:catalog_app/widgets/themes.dart';
 import 'package:flutter/material.dart';
@@ -36,6 +37,7 @@ class MyCartTotal extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final _cart = CartModel();
     return SizedBox(
       height: 75,
       child: Padding(
@@ -44,7 +46,7 @@ class MyCartTotal extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
             Text(
-              "\$69420",
+              "\$${_cart.totalPrice}",
               style: MyTheme().price,
             ),
             ElevatedButton(
@@ -87,20 +89,27 @@ class MyCartList extends StatefulWidget {
 }
 
 class _MyCartListState extends State<MyCartList> {
+  final _cart = CartModel();
   @override
   Widget build(BuildContext context) {
-    return ListView.builder(
-      itemCount: 7,
+    return _cart.items.isEmpty? Image.asset("assets/images/emptyCart.png") : ListView.builder(
+      itemCount: _cart.items.length,
       itemBuilder: (context, index) {
         return ListTile(
           leading: Icon(Icons.done),
           trailing: IconButton(
-            onPressed: () {},
+            onPressed: () {
+              _cart.remove(_cart.items[index]);
+              setState(() {
+                
+              });
+            },
             icon: Icon(Icons.remove_circle_outline_rounded),
           ),
-          title: Text("ITEM 1"),
+          title: Text(_cart.items[index].name),
         );
       },
     );
   }
 }
+
