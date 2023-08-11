@@ -1,6 +1,6 @@
 import 'dart:convert';
-
 import 'package:catalog_app/models/catalog.dart';
+import 'package:catalog_app/pages/cart_page.dart';
 import 'package:catalog_app/pages/wishlists_page.dart';
 import 'package:catalog_app/widgets/bottom_navbar.dart';
 import 'package:catalog_app/widgets/carousel.dart';
@@ -46,10 +46,9 @@ class _HomePageState extends State<HomePage> {
         actions: [
           IconButton(
             onPressed: () {
-              Navigator.push(context, MaterialPageRoute(builder: (context) => WishlistPage(),));
-              print("No new notifications!");
+              Navigator.push(context, MaterialPageRoute(builder: (context) => CartPage(),));
             },
-            icon: Icon(CupertinoIcons.bell_fill),
+            icon: Icon(CupertinoIcons.cart_fill),
           ),
           InkWell(
             onTap: () {

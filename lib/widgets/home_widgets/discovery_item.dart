@@ -39,7 +39,7 @@ class MyDiscoveryItem extends StatelessWidget {
                     borderRadius: BorderRadius.circular(8)),
                 child: Center(
                   child: Text(
-                    "\$${discovery.price}",
+                    '\$${discovery.price.toString()}',
                     style: MyTheme().s,
                   ),
                 ),

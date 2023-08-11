@@ -10,18 +10,43 @@ class HomeDetailsPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Stack(
-      children: [
-        Hero(
-          tag: Key(games.id.toString()),
-          child: Image.network(
-            games.image,
-            width: double.infinity,
-            fit: BoxFit.fill,
+    return Material(
+      child: Stack(
+        children: [
+          Hero(
+            tag: Key(games.id.toString()),
+            child: Image.network(
+              games.image,
+              width: double.infinity,
+              fit: BoxFit.fill,
+            ),
           ),
-        ),
-        MyGameDetails(games: games),
-      ],
+          MyGameDetails(games: games),
+          Positioned(
+            top: 61,
+            left: 16,
+            child: InkWell(
+              onTap: () {
+                Navigator.pop(context);
+              },
+              child: Container(
+                width: 48,
+                height: 48,
+                decoration: BoxDecoration(
+                  color: Colors.deepPurple,
+                  borderRadius: BorderRadius.circular(32),
+                ),
+                child: Center(
+                  child: Icon(
+                    CupertinoIcons.back,
+                    color: Colors.white,
+                  ),
+                ),
+              ),
+            ),
+          ),
+        ],
+      ),
     );
   }
 }

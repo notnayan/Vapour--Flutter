@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "146530159438",
+    "project_id": "vapour-flutter",
+    "storage_bucket": "vapour-flutter.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:146530159438:android:10163879713fde0080ac1f",
+        "android_client_info": {
+          "package_name": "com.example.catalog_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "146530159438-6t6erua32v6lqce565832uaq25latmjo.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDGBl6XH09hcgVIjTL5y7w7x_bwLoAatNA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "146530159438-6t6erua32v6lqce565832uaq25latmjo.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
