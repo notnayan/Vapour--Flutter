@@ -3,9 +3,8 @@ import 'package:catalog_app/core/store.dart';
 import 'package:catalog_app/models/cart.dart';
 import 'package:catalog_app/models/catalog.dart';
 import 'package:catalog_app/pages/cart_page.dart';
-import 'package:catalog_app/widgets/bottom_navbar.dart';
-import 'package:catalog_app/widgets/carousel.dart';
-import 'package:catalog_app/widgets/drawer.dart';
+import 'package:catalog_app/widgets/home_widgets/bottom_navbar.dart';
+import 'package:catalog_app/widgets/home_widgets/carousel.dart';
 import 'package:catalog_app/widgets/search_box.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -13,6 +12,7 @@ import 'package:flutter/services.dart';
 import 'package:vxstate/vxstate.dart';
 import '../utils/routes.dart';
 import '../widgets/home_widgets/discovery_list.dart';
+import '../widgets/home_widgets/drawer.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});

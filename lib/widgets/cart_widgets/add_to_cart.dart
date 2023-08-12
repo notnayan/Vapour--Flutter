@@ -3,8 +3,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:vxstate/vxstate.dart';
 
-import '../models/cart.dart';
-import '../models/catalog.dart';
+import '../../models/cart.dart';
+import '../../models/catalog.dart';
 
 class AddToCart extends StatelessWidget {
   final Item games;

@@ -2,8 +2,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 
-import '../pages/home_page.dart';
-import '../pages/wishlists_page.dart';
+import '../../pages/home_page.dart';
+import '../../pages/wishlists_page.dart';
 
 class MyBottomNavbar extends StatefulWidget {
   const MyBottomNavbar({super.key});

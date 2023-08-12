@@ -1,4 +1,4 @@
-import 'package:catalog_app/widgets/add_to_cart.dart';
+import 'package:catalog_app/widgets/cart_widgets/add_to_cart.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import '../../models/catalog.dart';

@@ -1,7 +1,7 @@
 import 'package:catalog_app/widgets/search_box.dart';
 import 'package:flutter/material.dart';
 import '../models/catalog.dart';
-import '../widgets/bottom_navbar.dart';
+import '../widgets/home_widgets/bottom_navbar.dart';
 import 'dart:convert';
 import 'package:flutter/services.dart';
 

@@ -2,7 +2,7 @@ import 'package:catalog_app/widgets/themes.dart';
 import 'package:flutter/material.dart';
 
 import '../models/catalog.dart';
-import 'add_to_cart.dart';
+import 'cart_widgets/add_to_cart.dart';
 
 class MyGameDetails extends StatelessWidget {
   final Item games;
