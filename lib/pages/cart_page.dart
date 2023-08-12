@@ -3,6 +3,9 @@ import 'package:catalog_app/models/cart.dart';
 import 'package:catalog_app/widgets/bottom_navbar.dart';
 import 'package:catalog_app/widgets/themes.dart';
 import 'package:flutter/material.dart';
+import 'package:vxstate/vxstate.dart';
+
+import '../core/store.dart';
 
 class CartPage extends StatelessWidget {
   const CartPage({super.key});
@@ -37,7 +40,7 @@ class MyCartTotal extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final _cart = CartModel();
+    final CartModel _cart = (VxState.store as MyStore).cart;
     return SizedBox(
       height: 75,
       child: Padding(
@@ -45,9 +48,15 @@ class MyCartTotal extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
-            Text(
-              "\$${_cart.totalPrice}",
-              style: MyTheme().price,
+            VxConsumer(
+              notifications: {},
+              builder: (BuildContext context, dynamic _, VxStatus? status) {
+                return Text(
+                  "\$${_cart.totalPrice.toStringAsFixed(2)}", 
+                  style: MyTheme().price,
+                );
+              },
+              mutations: {RemoveMutation},
             ),
             ElevatedButton(
               onPressed: () {
@@ -62,7 +71,7 @@ class MyCartTotal extends StatelessWidget {
                     contentType: ContentType.failure,
                   ),
                 );
-      
+
                 ScaffoldMessenger.of(context)
                   ..hideCurrentSnackBar()
                   ..showSnackBar(snackBar);
@@ -81,35 +90,25 @@ class MyCartTotal extends StatelessWidget {
   }
 }
 
-class MyCartList extends StatefulWidget {
-  const MyCartList({super.key});
-
-  @override
-  State<MyCartList> createState() => _MyCartListState();
-}
-
-class _MyCartListState extends State<MyCartList> {
-  final _cart = CartModel();
+class MyCartList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return _cart.items.isEmpty? Image.asset("assets/images/emptyCart.png") : ListView.builder(
-      itemCount: _cart.items.length,
-      itemBuilder: (context, index) {
-        return ListTile(
-          leading: Icon(Icons.done),
-          trailing: IconButton(
-            onPressed: () {
-              _cart.remove(_cart.items[index]);
-              setState(() {
-                
-              });
+    VxState.watch(context, on: [RemoveMutation]);
+    final CartModel _cart = (VxState.store as MyStore).cart;
+    return _cart.items.isEmpty
+        ? Image.asset("assets/images/emptyCart.png")
+        : ListView.builder(
+            itemCount: _cart.items.length,
+            itemBuilder: (context, index) {
+              return ListTile(
+                leading: Icon(Icons.done),
+                trailing: IconButton(
+                  onPressed: () => RemoveMutation(_cart.items[index]),
+                  icon: Icon(Icons.remove_circle_outline_rounded),
+                ),
+                title: Text(_cart.items[index].name),
+              );
             },
-            icon: Icon(Icons.remove_circle_outline_rounded),
-          ),
-          title: Text(_cart.items[index].name),
-        );
-      },
-    );
+          );
   }
 }
-

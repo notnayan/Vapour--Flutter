@@ -1,7 +1,8 @@
 import 'dart:convert';
+import 'package:catalog_app/core/store.dart';
+import 'package:catalog_app/models/cart.dart';
 import 'package:catalog_app/models/catalog.dart';
 import 'package:catalog_app/pages/cart_page.dart';
-import 'package:catalog_app/pages/wishlists_page.dart';
 import 'package:catalog_app/widgets/bottom_navbar.dart';
 import 'package:catalog_app/widgets/carousel.dart';
 import 'package:catalog_app/widgets/drawer.dart';
@@ -9,6 +10,7 @@ import 'package:catalog_app/widgets/search_box.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:vxstate/vxstate.dart';
 import '../utils/routes.dart';
 import '../widgets/home_widgets/discovery_list.dart';
 
@@ -39,16 +41,45 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
+    final _cart = (VxState.store as MyStore).cart;
     return Scaffold(
       backgroundColor: Colors.deepPurple.shade300,
       appBar: AppBar(
         title: Text("VAPOUR"),
         actions: [
-          IconButton(
-            onPressed: () {
-              Navigator.push(context, MaterialPageRoute(builder: (context) => CartPage(),));
-            },
-            icon: Icon(CupertinoIcons.cart_fill),
+          VxBuilder(
+            mutations: {AddMutation, RemoveMutation},
+            builder: (BuildContext context, dynamic _, VxStatus? status) => IconButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => CartPage(),
+                  ),
+                );
+              },
+              icon: Stack(
+                alignment: Alignment.topRight,
+                children: [
+                  Icon(CupertinoIcons.cart_fill),
+                  Positioned(
+                    top: 4,
+                    left: 0,
+                    child: Container(
+                      padding: EdgeInsets.all(3),
+                      decoration: BoxDecoration(
+                        color: Colors.red,
+                        shape: BoxShape.circle,
+                      ),
+                      child: Text(
+                        _cart.items.length.toString(),
+                        style: TextStyle(color: Colors.white, fontSize: 12),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
           ),
           InkWell(
             onTap: () {
@@ -107,5 +138,3 @@ class _HomePageState extends State<HomePage> {
     );
   }
 }
-
-

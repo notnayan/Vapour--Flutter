@@ -1,15 +1,11 @@
 import 'package:catalog_app/models/catalog.dart';
+import 'package:vxstate/vxstate.dart';
+
+import '../core/store.dart';
 
 class CartModel {
-
-  static final cartModel = CartModel._internal();
-
-  CartModel._internal();
-
-  factory CartModel() => cartModel;
-
   // Catalog field
-  late CatalogModel _catalog;
+  CatalogModel _catalog = CatalogModel();
 
   // Collection of ID's - store ID's of each item
   final List<int> _itemIDs = [];
@@ -29,13 +25,26 @@ class CartModel {
   num get totalPrice =>
       items.fold(0, (total, current) => total + current.price);
 
-  // Add Item
-  void add(Item item){
-    _itemIDs.add(item.id);
+}
+
+class AddMutation extends VxMutation<MyStore>{
+  final Item item;
+
+  AddMutation(this.item);
+  @override
+  perform() {
+    store!.cart._itemIDs.add(item.id);
   }
 
-  // Remove Item
-  void remove(Item item){
-    _itemIDs.remove(item.id);
-  }  
+}
+
+class RemoveMutation extends VxMutation<MyStore>{
+  final Item item;
+
+  RemoveMutation(this.item);
+  @override
+  perform() {
+    store!.cart._itemIDs.remove(item.id);
+  }
+
 }
